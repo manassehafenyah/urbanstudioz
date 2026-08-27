@@ -422,6 +422,140 @@ footer{background:var(--ink);padding:4rem 0 2.5rem}
 .toast b{color:var(--gold-lt);font-weight:400;font-family:var(--display);font-size:1.05rem}
 .toast.is-on{transform:translate(-50%,0)}
 
+
+
+/* ======================================================================
+   RESPONSIVE — phone, tablet, desktop
+   ====================================================================== */
+
+/* the cart drawer lives off-screen; stop it stretching the page */
+html{overflow-x:clip}
+body{overflow-x:clip}
+
+/* --- the menu button, and the panel it opens --- */
+.menu-btn{
+  display:none;position:relative;width:42px;height:42px;flex:0 0 auto;margin-left:auto;
+  background:transparent;border:1px solid var(--line);border-radius:50%;cursor:pointer;padding:0;
+}
+.menu-btn span{
+  position:absolute;left:50%;width:16px;height:1.5px;margin-left:-8px;
+  background:var(--gold-lt);transition:top .25s ease,transform .25s ease .05s,opacity .15s;
+}
+.menu-btn span:nth-child(1){top:calc(50% - 5px)}
+.menu-btn span:nth-child(2){top:50%}
+.menu-btn span:nth-child(3){top:calc(50% + 5px)}
+.menu-btn[aria-expanded="true"] span{transition:top .25s ease,transform .25s ease .05s,opacity .15s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:50%;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){top:50%;transform:rotate(-45deg)}
+.mobile-menu{
+  display:none;flex-direction:column;overflow:hidden;
+  max-height:0;transition:max-height .35s ease;border-top:0 solid var(--line-soft);
+}
+.mobile-menu.is-open{max-height:320px;border-top-width:1px}
+.mobile-menu a{
+  padding:1rem var(--gutter,4vw);font-size:.82rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--text);border-bottom:1px solid var(--line-soft);
+}
+.mobile-menu a:last-child{border-bottom:0}
+.mobile-menu a:active{background:var(--surface-2)}
+
+@media(max-width:900px){
+  .menu-btn{display:grid}
+  .mobile-menu{display:flex}
+  .theme-btn{margin-left:.5rem}
+  .theme-btn + .cart-btn{margin-left:.5rem}
+  .nav-in{gap:.6rem}
+}
+
+/* --- phones --- */
+@media(max-width:640px){
+  .nav-in{min-height:64px;gap:.45rem}
+  .brand{gap:.55rem}
+  .brand img{width:42px;height:42px}
+  .brand-name{font-size:.7rem;letter-spacing:.12em}
+  .menu-btn,.theme-btn{width:38px;height:38px}
+  .cart-btn{padding:.45rem .75rem;font-size:.6rem;letter-spacing:.14em;gap:.4rem}
+  .cart-count{min-width:18px;height:18px;font-size:.62rem}
+
+  .section{padding:3rem 0}
+  .section-head{margin-bottom:1.4rem;gap:1.2rem}
+  .controls{width:100%;gap:.5rem}
+  .search{flex:1 1 100%;min-width:0}
+  select.search{flex:1 1 calc(50% - .25rem)}
+  .filter-row{margin-bottom:1.4rem;gap:.7rem}
+  .result-count{font-size:.65rem}
+
+  /* two products across — 94 bottles is a long scroll one-up */
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+  .card-body{padding:.8rem .8rem 1rem;gap:.2rem}
+  .card-brand{font-size:.52rem;letter-spacing:.18em}
+  .card-name{font-size:1.02rem;min-height:2.4em}
+  .card-spec{font-size:.65rem}
+  .card-price{font-size:1.05rem}
+  .card-foot{flex-direction:column;align-items:stretch;gap:.5rem;margin-top:.6rem}
+  .add,.soldout{width:100%;text-align:center}
+  .tag{font-size:.48rem;padding:.22rem .4rem;top:.5rem;left:.5rem}
+
+  .ethos-in{padding:3rem 0;gap:1.8rem}
+  footer{padding:3rem 0 2rem}
+  .foot-bottom{margin-top:2rem}
+}
+
+@media(max-width:330px){
+  .grid{grid-template-columns:1fr}
+  .brand-tag,.brand-name{display:none}
+}
+
+/* tablets: three across reads better than two wide ones */
+@media(min-width:641px) and (max-width:1023px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+  .card-name{font-size:1.18rem}
+}
+
+/* --- touch: no hover, so nothing may hide behind it --- */
+@media(hover:none){
+  .quick{transform:none}
+  .card:hover{transform:none}
+  .add{padding:.72rem 1rem;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  .chip{min-height:40px;display:inline-flex;align-items:center}
+  .qty button{width:38px;height:38px;font-size:1.05rem}
+  .arrow{width:48px;height:48px}
+  .x{font-size:1.9rem;padding:.3rem .6rem}
+  .li-remove{padding:.4rem 0;min-height:32px}
+  .btn{padding:1.05rem 2rem}
+}
+
+/* --- product panel on small screens --- */
+@media(max-width:720px){
+  .modal{padding:.7rem}
+  .modal-stage{min-height:170px;padding:1.6rem}
+  .modal-stage svg,.modal-stage .shot{max-width:150px}
+  .modal-info{padding:1.5rem}
+  .modal-info h3{font-size:1.7rem}
+  .spec-row{grid-template-columns:96px 1fr;font-size:.78rem}
+  .modal-buy{gap:.9rem;margin-top:1.2rem}
+  .modal-buy .btn{flex:1}
+}
+
+/* --- cart on small screens --- */
+@media(max-width:520px){
+  .drawer{width:100%}
+  .drawer-head,.drawer-body,.drawer-foot{padding-inline:1.1rem}
+  .line-item{grid-template-columns:52px 1fr auto;gap:.7rem}
+  .li-name{font-size:1rem}
+  .order-form{gap:.9rem}
+}
+
+/* --- big screens get more room --- */
+@media(min-width:1600px){
+  :root{--shell:min(1460px,90vw)}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
+}
+@media(min-width:1100px){
+  .hero-in{min-height:min(74vh,640px)}
+}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   html{scroll-behavior:auto}
@@ -447,6 +581,9 @@ footer{background:var(--ink);padding:4rem 0 2.5rem}
       <a href="#for-him">For Him</a>
       <a href="#ethos">The House</a>
     </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
     <button class="theme-btn" id="themeBtn" aria-label="Switch to dark theme" title="Switch theme">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
         <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"/>
@@ -459,6 +596,12 @@ footer{background:var(--ink);padding:4rem 0 2.5rem}
       Cart <span class="cart-count" id="cartCount">0</span>
     </button>
   </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Main menu">
+    <a href="#collection">Catalogue</a>
+    <a href="#for-her">For Her</a>
+    <a href="#for-him">For Him</a>
+    <a href="#ethos">The House</a>
+  </nav>
 </header>
 
 <main id="top">
@@ -670,7 +813,7 @@ function fromSheet(text){
     const bi = brands.indexOf(p.brand);
     const who = /wom|her|lad/.test(p.whoRaw) ? "her" : /^men|him|man/.test(p.whoRaw) ? "him" : "unisex";
     return {
-      id, pk: p.photo ? p.photo.replace(/\.(jpe?g|png|webp|avif)$/i, "") : slugify(p.brand + "-" + p.name),
+      id, pk: slugify(p.brand + "-" + p.name), file: /\.(jpe?g|png|webp|avif)$/i.test(p.photo) ? p.photo : "",
       brand: p.brand, ab: abbrev(p.brand), name: p.name, type: p.type, size: p.size,
       who, price: p.price, out: p.out, notes: "",
       hue: HUES[bi % HUES.length], shape: SHAPES[bi % SHAPES.length]
@@ -751,12 +894,15 @@ function bottle(p){
    the drawn bottle. Drop photos/<pk>.jpg (or .png) in and it appears —
    no code change needed. */
 window.SA_ph = function(img){
-  if(!img.dataset.tried){ img.dataset.tried = "1"; img.src = img.src.replace(/\.jpg(\?.*)?$/, ".png"); }
-  else { img.remove(); }
+  /* the spreadsheet named the file exactly, so don't guess a second time */
+  if(img.dataset.exact || img.dataset.tried){ img.remove(); return; }
+  img.dataset.tried = "1";
+  img.src = img.src.replace(/\.jpg(\?.*)?$/, ".png");
 };
 function shot(p){
-  return `<div class="shot">${bottle(p)}<img class="photo" src="photos/${p.pk}.jpg" alt="${esc(p.brand)} ${esc(p.name)}"
-    loading="lazy" decoding="async"
+  const file = p.file || (p.pk + ".jpg");
+  return `<div class="shot">${bottle(p)}<img class="photo" src="photos/${file}" alt="${esc(p.brand)} ${esc(p.name)}"
+    loading="lazy" decoding="async"${p.file ? ' data-exact="1"' : ""}
     onload="this.parentNode.classList.add('has-photo')" onerror="SA_ph(this)"></div>`;
 }
 
@@ -1145,6 +1291,31 @@ function toast(brand, name){
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove("is-on"), 2600);
 }
+
+/* ---------- mobile menu ---------- */
+const menuBtn = $("#menuBtn"), mobileMenu = $("#mobileMenu");
+function closeMenu(){ mobileMenu.classList.remove("is-open"); menuBtn.setAttribute("aria-expanded","false"); }
+menuBtn.addEventListener("click", () => {
+  const open = mobileMenu.classList.toggle("is-open");
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+});
+mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeMenu(); });
+
+/* ---------- swipe the slideshow on touch ---------- */
+(function(){
+  const hero = $(".hero");
+  let x0 = null, y0 = null;
+  hero.addEventListener("touchstart", e => {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, {passive:true});
+  hero.addEventListener("touchend", e => {
+    if(x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if(Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? idx + 1 : idx - 1);
+    x0 = y0 = null;
+  }, {passive:true});
+})();
 
 /* ---------- theme ---------- */
 const root = document.documentElement;
