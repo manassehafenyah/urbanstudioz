@@ -265,6 +265,10 @@ select.search{cursor:pointer;appearance:none;padding-right:2.2rem;
   border-radius:2px;transition:background .25s,color .25s;white-space:nowrap;
 }
 .add:hover{background:var(--gold);color:#160F03}
+.soldout{
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line-soft);padding:.5rem .9rem;border-radius:2px;white-space:nowrap;
+}
 .empty{grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--muted);font-family:var(--display);font-style:italic;font-size:1.3rem}
 .more-wrap{display:grid;place-items:center;margin-top:2.5rem}
 
@@ -527,7 +531,7 @@ footer{background:var(--ink);padding:4rem 0 2.5rem}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-(function(){
+(async function(){
 "use strict";
 /* ======================================================================
    SETTINGS — edit these two lines and nothing else to go live.
@@ -539,7 +543,115 @@ const SHOP_NAME = "Smell & Aura";
 /* ==================================================================== */
 
 const DATA = {"products":[{"id":"hugo-boss-boss-bottled-edt-100-ml","pk":"hugo-boss-boss-bottled","brand":"Hugo Boss","ab":"BOSS","name":"Boss Bottled","type":"EDT","size":"100 ml","who":"him","price":840,"hue":24,"shape":"flask","notes":""},{"id":"hugo-boss-boss-bottled-bold-citrus-edp-100-ml","pk":"hugo-boss-boss-bottled-bold-citrus","brand":"Hugo Boss","ab":"BOSS","name":"Boss Bottled Bold Citrus","type":"EDP","size":"100 ml","who":"him","price":840,"hue":24,"shape":"flask","notes":""},{"id":"giorgio-armani-acqua-di-gio-pour-homme-edt-100-ml","pk":"giorgio-armani-acqua-di-gio-pour-homme","brand":"Giorgio Armani","ab":"GA","name":"Acqua di Gio Pour Homme","type":"EDT","size":"100 ml","who":"him","price":1020,"hue":190,"shape":"flask","notes":""},{"id":"giorgio-armani-si-passione-edp-100-ml","pk":"giorgio-armani-si-passione","brand":"Giorgio Armani","ab":"GA","name":"Si Passione","type":"EDP","size":"100 ml","who":"her","price":1020,"hue":190,"shape":"flask","notes":""},{"id":"giorgio-armani-my-way-edp-90-ml","pk":"giorgio-armani-my-way","brand":"Giorgio Armani","ab":"GA","name":"My Way","type":"EDP","size":"90 ml","who":"her","price":1150,"hue":190,"shape":"flask","notes":""},{"id":"giorgio-armani-my-way-floral-edp-90-ml","pk":"giorgio-armani-my-way-floral","brand":"Giorgio Armani","ab":"GA","name":"My Way Floral","type":"EDP","size":"90 ml","who":"her","price":1150,"hue":190,"shape":"flask","notes":""},{"id":"emporio-armani-stronger-with-you-parfum-parfum-100-ml","pk":"emporio-armani-stronger-with-you-parfum","brand":"Emporio Armani","ab":"EA","name":"Stronger With You Parfum","type":"Parfum","size":"100 ml","who":"him","price":1210,"hue":42,"shape":"flacon","notes":""},{"id":"emporio-armani-stronger-with-you-sandalwood-edp-100-ml","pk":"emporio-armani-stronger-with-you-sandalwood","brand":"Emporio Armani","ab":"EA","name":"Stronger With You Sandalwood","type":"EDP","size":"100 ml","who":"him","price":1210,"hue":42,"shape":"flacon","notes":""},{"id":"emporio-armani-stronger-with-you-oud-edp-100-ml","pk":"emporio-armani-stronger-with-you-oud","brand":"Emporio Armani","ab":"EA","name":"Stronger With You Oud","type":"EDP","size":"100 ml","who":"him","price":1210,"hue":42,"shape":"flacon","notes":""},{"id":"dior-sauvage-elixir-elixir-100-ml","pk":"dior-sauvage-elixir","brand":"Dior","ab":"DIOR","name":"Sauvage Elixir","type":"Elixir","size":"100 ml","who":"him","price":1430,"hue":178,"shape":"flask","notes":""},{"id":"dior-sauvage-edp-100-ml","pk":"dior-sauvage","brand":"Dior","ab":"DIOR","name":"Sauvage","type":"EDP","size":"100 ml","who":"him","price":1180,"hue":178,"shape":"flask","notes":""},{"id":"dior-rouge-trafalgar-la-collection-privee-esprit-de-parfum","pk":"dior-rouge-trafalgar-la-collection-privee","brand":"Dior","ab":"DIOR","name":"Rouge Trafalgar (La Collection Privee)","type":"Esprit de Parfum","size":"","who":"unisex","price":1080,"hue":178,"shape":"flask","notes":""},{"id":"dior-oud-ispahan-la-collection-privee-edp-125-ml","pk":"dior-oud-ispahan-la-collection-privee","brand":"Dior","ab":"DIOR","name":"Oud Ispahan (La Collection Privee)","type":"EDP","size":"125 ml","who":"unisex","price":1080,"hue":178,"shape":"flask","notes":""},{"id":"dior-miss-dior-bobby-edition-edp","pk":"dior-miss-dior-bobby-edition","brand":"Dior","ab":"DIOR","name":"Miss Dior - Bobby Edition","type":"EDP","size":"","who":"her","price":980,"hue":178,"shape":"flask","notes":""},{"id":"tom-ford-oud-minerale-edp-100-ml","pk":"tom-ford-oud-minerale","brand":"Tom Ford","ab":"TF","name":"Oud Minerale","type":"EDP","size":"100 ml","who":"unisex","price":1270,"hue":58,"shape":"obelisk","notes":""},{"id":"tom-ford-black-orchid-edp-100-ml","pk":"tom-ford-black-orchid","brand":"Tom Ford","ab":"TF","name":"Black Orchid","type":"EDP","size":"100 ml","who":"unisex","price":1080,"hue":58,"shape":"obelisk","notes":""},{"id":"tom-ford-eau-d-ombre-leather-edt-100-ml","pk":"tom-ford-eau-d-ombre-leather","brand":"Tom Ford","ab":"TF","name":"Eau d'Ombre Leather","type":"EDT","size":"100 ml","who":"unisex","price":1270,"hue":58,"shape":"obelisk","notes":""},{"id":"tom-ford-fucking-fabulous-fabulous-edp-100-ml","pk":"tom-ford-fucking-fabulous-fabulous","brand":"Tom Ford","ab":"TF","name":"Fucking Fabulous / Fabulous","type":"EDP","size":"100 ml","who":"unisex","price":1580,"hue":58,"shape":"obelisk","notes":""},{"id":"tom-ford-oud-wood-edp-100-ml","pk":"tom-ford-oud-wood","brand":"Tom Ford","ab":"TF","name":"Oud Wood","type":"EDP","size":"100 ml","who":"unisex","price":1470,"hue":58,"shape":"obelisk","notes":""},{"id":"bvlgari-pour-homme-soir-edt-100-ml","pk":"bvlgari-pour-homme-soir","brand":"Bvlgari","ab":"BVLGAR","name":"Pour Homme Soir","type":"EDT","size":"100 ml","who":"him","price":980,"hue":200,"shape":"flacon","notes":""},{"id":"bvlgari-man-in-black-edp-100-ml","pk":"bvlgari-man-in-black","brand":"Bvlgari","ab":"BVLGAR","name":"Man In Black","type":"EDP","size":"100 ml","who":"him","price":980,"hue":200,"shape":"flacon","notes":""},{"id":"gucci-guilty-pour-homme-edt-90-ml","pk":"gucci-guilty-pour-homme","brand":"Gucci","ab":"GUCCI","name":"Guilty Pour Homme","type":"EDT","size":"90 ml","who":"him","price":870,"hue":38,"shape":"flacon","notes":""},{"id":"jo-malone-london-orange-blossom-cologne-100-ml","pk":"jo-malone-london-orange-blossom","brand":"Jo Malone London","ab":"JO","name":"Orange Blossom","type":"Cologne","size":"100 ml","who":"unisex","price":1280,"hue":152,"shape":"flask","notes":""},{"id":"burberry-goddess-edp-100-ml","pk":"burberry-goddess","brand":"Burberry","ab":"BURBER","name":"Goddess","type":"EDP","size":"100 ml","who":"her","price":1080,"hue":222,"shape":"obelisk","notes":""},{"id":"burberry-my-burberry-black-parfum-90-ml","pk":"burberry-my-burberry-black","brand":"Burberry","ab":"BURBER","name":"My Burberry Black","type":"Parfum","size":"90 ml","who":"her","price":1080,"hue":222,"shape":"obelisk","notes":""},{"id":"burberry-burberry-london-for-women-edp-100-ml","pk":"burberry-burberry-london-for-women","brand":"Burberry","ab":"BURBER","name":"Burberry London for Women","type":"EDP","size":"100 ml","who":"her","price":780,"hue":222,"shape":"obelisk","notes":""},{"id":"burberry-signatures-amber-heath-edp-100-ml","pk":"burberry-signatures-amber-heath","brand":"Burberry","ab":"BURBER","name":"Signatures - Amber Heath","type":"EDP","size":"100 ml","who":"unisex","price":780,"hue":222,"shape":"obelisk","notes":""},{"id":"hermes-terre-d-hermes-edt-100-ml","pk":"hermes-terre-d-hermes","brand":"Hermes","ab":"HERMES","name":"Terre d'Hermes","type":"EDT","size":"100 ml","who":"him","price":1180,"hue":342,"shape":"orb","notes":""},{"id":"prada-paradoxe-intense-edp-90-ml","pk":"prada-paradoxe-intense","brand":"Prada","ab":"PRADA","name":"Paradoxe Intense","type":"EDP","size":"90 ml","who":"her","price":1280,"hue":200,"shape":"flacon","notes":""},{"id":"prada-paradoxe-radical-essence-parfum-90-ml","pk":"prada-paradoxe-radical-essence","brand":"Prada","ab":"PRADA","name":"Paradoxe Radical Essence","type":"Parfum","size":"90 ml","who":"her","price":1080,"hue":200,"shape":"flacon","notes":""},{"id":"valentino-uomo-born-in-roma-intense-edp-100-ml","pk":"valentino-uomo-born-in-roma-intense","brand":"Valentino","ab":"VALENT","name":"Uomo Born In Roma Intense","type":"EDP","size":"100 ml","who":"him","price":1180,"hue":14,"shape":"flacon","notes":""},{"id":"valentino-uomo-born-in-roma-purple-flanker-edt-100-ml","pk":"valentino-uomo-born-in-roma-purple-flanker","brand":"Valentino","ab":"VALENT","name":"Uomo Born In Roma (purple flanker)","type":"EDT","size":"100 ml","who":"him","price":1180,"hue":14,"shape":"flacon","notes":""},{"id":"valentino-donna-born-in-roma-edp-100-ml","pk":"valentino-donna-born-in-roma","brand":"Valentino","ab":"VALENT","name":"Donna Born In Roma","type":"EDP","size":"100 ml","who":"her","price":1180,"hue":14,"shape":"flacon","notes":""},{"id":"valentino-donna-born-in-roma-intense-edp-100-ml","pk":"valentino-donna-born-in-roma-intense","brand":"Valentino","ab":"VALENT","name":"Donna Born In Roma Intense","type":"EDP","size":"100 ml","who":"her","price":1180,"hue":14,"shape":"flacon","notes":""},{"id":"yves-saint-laurent-y-le-parfum-parfum-100-ml","pk":"yves-saint-laurent-y-le-parfum","brand":"Yves Saint Laurent","ab":"YSL","name":"Y Le Parfum","type":"Parfum","size":"100 ml","who":"him","price":1020,"hue":328,"shape":"orb","notes":""},{"id":"yves-saint-laurent-myslf-le-parfum-parfum-100-ml","pk":"yves-saint-laurent-myslf-le-parfum","brand":"Yves Saint Laurent","ab":"YSL","name":"MYSLF Le Parfum","type":"Parfum","size":"100 ml","who":"him","price":1020,"hue":328,"shape":"orb","notes":""},{"id":"yves-saint-laurent-y-iced-cologne-edt-intense-edt-100-ml","pk":"yves-saint-laurent-y-iced-cologne-edt-intense","brand":"Yves Saint Laurent","ab":"YSL","name":"Y Iced Cologne (EDT Intense)","type":"EDT","size":"100 ml","who":"him","price":1020,"hue":328,"shape":"orb","notes":""},{"id":"yves-saint-laurent-libre-eau-de-parfum-intense-edp-intense-90-ml","pk":"yves-saint-laurent-libre-eau-de-parfum-intense","brand":"Yves Saint Laurent","ab":"YSL","name":"Libre Eau de Parfum Intense","type":"EDP Intense","size":"90 ml","who":"her","price":1020,"hue":328,"shape":"orb","notes":""},{"id":"yves-saint-laurent-libre-vanille-couture-edp-90-ml","pk":"yves-saint-laurent-libre-vanille-couture","brand":"Yves Saint Laurent","ab":"YSL","name":"Libre Vanille Couture","type":"EDP","size":"90 ml","who":"her","price":1020,"hue":328,"shape":"orb","notes":""},{"id":"montblanc-explorer-edp-100-ml","pk":"montblanc-explorer","brand":"Montblanc","ab":"MONTBL","name":"Explorer","type":"EDP","size":"100 ml","who":"him","price":870,"hue":190,"shape":"flask","notes":""},{"id":"montblanc-explorer-platinum-edp-100-ml","pk":"montblanc-explorer-platinum","brand":"Montblanc","ab":"MONTBL","name":"Explorer Platinum","type":"EDP","size":"100 ml","who":"him","price":870,"hue":190,"shape":"flask","notes":""},{"id":"coach-coach-new-york-edp-90-ml","pk":"coach-coach-new-york","brand":"Coach","ab":"COACH","name":"Coach New York","type":"EDP","size":"90 ml","who":"her","price":770,"hue":14,"shape":"flacon","notes":""},{"id":"coach-love-edp-90-ml","pk":"coach-love","brand":"Coach","ab":"COACH","name":"Love","type":"EDP","size":"90 ml","who":"her","price":770,"hue":14,"shape":"flacon","notes":""},{"id":"coach-gold-parfum-90-ml","pk":"coach-gold","brand":"Coach","ab":"COACH","name":"Gold","type":"Parfum","size":"90 ml","who":"her","price":770,"hue":14,"shape":"flacon","notes":""},{"id":"parfums-de-marly-percival-edp-125-ml","pk":"parfums-de-marly-percival","brand":"Parfums de Marly","ab":"PdM","name":"Percival","type":"EDP","size":"125 ml","who":"him","price":1180,"hue":342,"shape":"orb","notes":""},{"id":"parfums-de-marly-layton-edp-125-ml","pk":"parfums-de-marly-layton","brand":"Parfums de Marly","ab":"PdM","name":"Layton","type":"EDP","size":"125 ml","who":"him","price":1180,"hue":342,"shape":"orb","notes":""},{"id":"cartier-la-panthere-edp-75-ml","pk":"cartier-la-panthere","brand":"Cartier","ab":"CARTIE","name":"La Panthere","type":"EDP","size":"75 ml","who":"her","price":910,"hue":152,"shape":"flask","notes":""},{"id":"issey-miyake-l-eau-d-issey-pour-homme-edt-125-ml","pk":"issey-miyake-l-eau-d-issey-pour-homme","brand":"Issey Miyake","ab":"IM","name":"L'Eau d'Issey Pour Homme","type":"EDT","size":"125 ml","who":"him","price":870,"hue":222,"shape":"obelisk","notes":""},{"id":"dolce-gabbana-devotion-edp-100-ml","pk":"dolce-gabbana-devotion","brand":"Dolce & Gabbana","ab":"D&G","name":"Devotion","type":"EDP","size":"100 ml","who":"her","price":870,"hue":262,"shape":"obelisk","notes":""},{"id":"kilian-angels-share-edp-50-ml","pk":"kilian-angels-share","brand":"Kilian","ab":"KILIAN","name":"Angels' Share","type":"EDP","size":"50 ml","who":"unisex","price":1070,"hue":58,"shape":"obelisk","notes":""},{"id":"kilian-angels-share-extrait-de-parfum-50-ml","pk":"kilian-angels-share","brand":"Kilian","ab":"KILIAN","name":"Angels' Share","type":"Extrait de Parfum","size":"50 ml","who":"unisex","price":1070,"hue":58,"shape":"obelisk","notes":""},{"id":"mancera-red-tobacco-edp-120-ml","pk":"mancera-red-tobacco","brand":"Mancera","ab":"MANCER","name":"Red Tobacco","type":"EDP","size":"120 ml","who":"unisex","price":980,"hue":310,"shape":"orb","notes":""},{"id":"roja-parfums-elysium-pour-homme-parfum-100-ml","pk":"roja-parfums-elysium-pour-homme","brand":"Roja Parfums","ab":"RP","name":"Elysium Pour Homme","type":"Parfum","size":"100 ml","who":"him","price":1080,"hue":296,"shape":"orb","notes":""},{"id":"roja-parfums-turandot-parfum-100-ml","pk":"roja-parfums-turandot","brand":"Roja Parfums","ab":"RP","name":"Turandot","type":"Parfum","size":"100 ml","who":"her","price":1080,"hue":296,"shape":"orb","notes":""},{"id":"roja-parfums-diaghilev-parfum-100-ml","pk":"roja-parfums-diaghilev","brand":"Roja Parfums","ab":"RP","name":"Diaghilev","type":"Parfum","size":"100 ml","who":"unisex","price":1080,"hue":296,"shape":"orb","notes":""},{"id":"roja-parfums-harrods-pour-homme-parfum-100-ml","pk":"roja-parfums-harrods-pour-homme","brand":"Roja Parfums","ab":"RP","name":"Harrods Pour Homme","type":"Parfum","size":"100 ml","who":"him","price":1080,"hue":296,"shape":"orb","notes":""},{"id":"nishane-hacivat-x-extrait-de-parfum-50-ml","pk":"nishane-hacivat-x","brand":"Nishane","ab":"NISHAN","name":"Hacivat X","type":"Extrait de Parfum","size":"50 ml","who":"unisex","price":1580,"hue":272,"shape":"obelisk","notes":""},{"id":"nishane-hacivat-extrait-de-parfum-50-ml","pk":"nishane-hacivat","brand":"Nishane","ab":"NISHAN","name":"Hacivat","type":"Extrait de Parfum","size":"50 ml","who":"unisex","price":1580,"hue":272,"shape":"obelisk","notes":""},{"id":"nishane-hundred-silent-ways-extrait-de-parfum-50-ml","pk":"nishane-hundred-silent-ways","brand":"Nishane","ab":"NISHAN","name":"Hundred Silent Ways","type":"Extrait de Parfum","size":"50 ml","who":"unisex","price":1580,"hue":272,"shape":"obelisk","notes":""},{"id":"nishane-wulong-cha-x-extrait-de-parfum-50-ml","pk":"nishane-wulong-cha-x","brand":"Nishane","ab":"NISHAN","name":"Wulong Cha X","type":"Extrait de Parfum","size":"50 ml","who":"unisex","price":1580,"hue":272,"shape":"obelisk","notes":""},{"id":"maison-crivelli-oud-maracuja-extrait-de-parfum-100-ml","pk":"maison-crivelli-oud-maracuja","brand":"Maison Crivelli","ab":"MC","name":"Oud Maracuja","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":1580,"hue":262,"shape":"obelisk","notes":""},{"id":"maison-crivelli-hibiscus-mahajad-extrait-de-parfum-100-ml","pk":"maison-crivelli-hibiscus-mahajad","brand":"Maison Crivelli","ab":"MC","name":"Hibiscus Mahajad","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":1580,"hue":262,"shape":"obelisk","notes":""},{"id":"tiziana-terenzi-kirke-extrait-de-parfum-100-ml","pk":"tiziana-terenzi-kirke","brand":"Tiziana Terenzi","ab":"TT","name":"Kirke","type":"Extrait de Parfum","size":"100 ml","who":"her","price":1180,"hue":152,"shape":"flask","notes":""},{"id":"lattafa-badee-al-oud-oud-for-glory-edp-100-ml","pk":"lattafa-badee-al-oud-oud-for-glory","brand":"Lattafa","ab":"LATTAF","name":"Badee Al Oud - Oud For Glory","type":"EDP","size":"100 ml","who":"unisex","price":380,"hue":14,"shape":"flacon","notes":""},{"id":"lattafa-his-confession-parfum-100-ml","pk":"lattafa-his-confession","brand":"Lattafa","ab":"LATTAF","name":"His Confession","type":"Parfum","size":"100 ml","who":"him","price":420,"hue":14,"shape":"flacon","notes":""},{"id":"jimmy-choo-i-want-choo-forever-edp-100-ml","pk":"jimmy-choo-i-want-choo-forever","brand":"Jimmy Choo","ab":"JC","name":"I Want Choo Forever","type":"EDP","size":"100 ml","who":"her","price":980,"hue":296,"shape":"orb","notes":""},{"id":"penhaligon-s-the-omniscient-mr-thompson-edp-75-ml","pk":"penhaligon-s-the-omniscient-mr-thompson","brand":"Penhaligon's","ab":"P's","name":"The Omniscient Mr Thompson","type":"EDP","size":"75 ml","who":"him","price":1680,"hue":222,"shape":"obelisk","notes":""},{"id":"penhaligon-s-the-coveted-duchess-rose-edp-75-ml","pk":"penhaligon-s-the-coveted-duchess-rose","brand":"Penhaligon's","ab":"P's","name":"The Coveted Duchess Rose","type":"EDP","size":"75 ml","who":"her","price":1680,"hue":222,"shape":"obelisk","notes":""},{"id":"le-labo-myrrhe-55-edp-100-ml","pk":"le-labo-myrrhe-55","brand":"Le Labo","ab":"LL","name":"Myrrhe 55","type":"EDP","size":"100 ml","who":"unisex","price":880,"hue":328,"shape":"orb","notes":""},{"id":"frederic-malle-portrait-of-a-lady-edp-50-ml","pk":"frederic-malle-portrait-of-a-lady","brand":"Frederic Malle","ab":"FM","name":"Portrait of a Lady","type":"EDP","size":"50 ml","who":"her","price":2330,"hue":310,"shape":"orb","notes":""},{"id":"frederic-malle-une-rose-edp-50-ml","pk":"frederic-malle-une-rose","brand":"Frederic Malle","ab":"FM","name":"Une Rose","type":"EDP","size":"50 ml","who":"her","price":2330,"hue":310,"shape":"orb","notes":""},{"id":"frederic-malle-rose-cuir-edp-50-ml","pk":"frederic-malle-rose-cuir","brand":"Frederic Malle","ab":"FM","name":"Rose & Cuir","type":"EDP","size":"50 ml","who":"unisex","price":2330,"hue":310,"shape":"orb","notes":""},{"id":"armaf-club-de-nuit-women-edp-105-ml","pk":"armaf-club-de-nuit-women","brand":"Armaf","ab":"ARMAF","name":"Club de Nuit Women","type":"EDP","size":"105 ml","who":"her","price":410,"hue":24,"shape":"flask","notes":""},{"id":"armaf-club-de-nuit-intense-man-edt-105-ml","pk":"armaf-club-de-nuit-intense-man","brand":"Armaf","ab":"ARMAF","name":"Club de Nuit Intense Man","type":"EDT","size":"105 ml","who":"him","price":410,"hue":24,"shape":"flask","notes":""},{"id":"al-haramain-amber-oud-aqua-dubai-extrait-de-parfum-100-ml","pk":"al-haramain-amber-oud-aqua-dubai","brand":"Al Haramain","ab":"AH","name":"Amber Oud Aqua Dubai","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":760,"hue":38,"shape":"flacon","notes":""},{"id":"al-haramain-amber-oud-ruby-edition-extrait-de-parfum-100-ml","pk":"al-haramain-amber-oud-ruby-edition","brand":"Al Haramain","ab":"AH","name":"Amber Oud Ruby Edition","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":760,"hue":38,"shape":"flacon","notes":""},{"id":"al-haramain-amber-oud-gold-edition-extrait-de-parfum-100-ml","pk":"al-haramain-amber-oud-gold-edition","brand":"Al Haramain","ab":"AH","name":"Amber Oud Gold Edition","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":760,"hue":38,"shape":"flacon","notes":""},{"id":"al-haramain-amber-oud-bleu-edition-extrait-de-parfum-100-ml","pk":"al-haramain-amber-oud-bleu-edition","brand":"Al Haramain","ab":"AH","name":"Amber Oud Bleu Edition","type":"Extrait de Parfum","size":"100 ml","who":"unisex","price":760,"hue":38,"shape":"flacon","notes":""},{"id":"jean-paul-gaultier-le-male-elixir-absolu-parfum-intense-125-ml","pk":"jean-paul-gaultier-le-male-elixir-absolu","brand":"Jean Paul Gaultier","ab":"JPG","name":"Le Male Elixir Absolu","type":"Parfum Intense","size":"125 ml","who":"him","price":870,"hue":200,"shape":"flacon","notes":""},{"id":"amouage-purpose-50-edp-100-ml","pk":"amouage-purpose-50","brand":"Amouage","ab":"AMOUAG","name":"Purpose 50","type":"EDP","size":"100 ml","who":"him","price":1630,"hue":342,"shape":"orb","notes":""},{"id":"amouage-interlude-53-man-edp-100-ml","pk":"amouage-interlude-53-man","brand":"Amouage","ab":"AMOUAG","name":"Interlude 53 Man","type":"EDP","size":"100 ml","who":"him","price":1630,"hue":342,"shape":"orb","notes":""},{"id":"amouage-search-edp-100-ml","pk":"amouage-search","brand":"Amouage","ab":"AMOUAG","name":"Search","type":"EDP","size":"100 ml","who":"unisex","price":1630,"hue":342,"shape":"orb","notes":""},{"id":"maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-200-ml","pk":"maison-francis-kurkdjian-baccarat-rouge-540","brand":"Maison Francis Kurkdjian","ab":"MFK","name":"Baccarat Rouge 540","type":"Extrait de Parfum","size":"200 ml","who":"unisex","price":2670,"hue":42,"shape":"flacon","notes":""},{"id":"paco-rabanne-1-million-elixir-parfum-intense-100-ml","pk":"paco-rabanne-1-million-elixir","brand":"Paco Rabanne","ab":"PR","name":"1 Million Elixir","type":"Parfum Intense","size":"100 ml","who":"him","price":1180,"hue":38,"shape":"flacon","notes":""},{"id":"louis-vuitton-imagination-edp-100-ml","pk":"louis-vuitton-imagination","brand":"Louis Vuitton","ab":"LV","name":"Imagination","type":"EDP","size":"100 ml","who":"him","price":1580,"hue":178,"shape":"flask","notes":""},{"id":"louis-vuitton-ombre-nomade-edp-100-ml","pk":"louis-vuitton-ombre-nomade","brand":"Louis Vuitton","ab":"LV","name":"Ombre Nomade","type":"EDP","size":"100 ml","who":"unisex","price":1580,"hue":178,"shape":"flask","notes":""},{"id":"louis-vuitton-ombre-nomade-edp-200-ml","pk":"louis-vuitton-ombre-nomade","brand":"Louis Vuitton","ab":"LV","name":"Ombre Nomade","type":"EDP","size":"200 ml","who":"unisex","price":2800,"hue":178,"shape":"flask","notes":""},{"id":"givenchy-gentleman-society-edp-100-ml","pk":"givenchy-gentleman-society","brand":"Givenchy","ab":"GIVENC","name":"Gentleman Society","type":"EDP","size":"100 ml","who":"him","price":1180,"hue":272,"shape":"obelisk","notes":""},{"id":"byredo-blanche-edp-100-ml","pk":"byredo-blanche","brand":"Byredo","ab":"BYREDO","name":"Blanche","type":"EDP","size":"100 ml","who":"her","price":1820,"hue":296,"shape":"orb","notes":""},{"id":"byredo-rose-of-no-man-s-land-edp-100-ml","pk":"byredo-rose-of-no-man-s-land","brand":"Byredo","ab":"BYREDO","name":"Rose of No Man's Land","type":"EDP","size":"100 ml","who":"unisex","price":1880,"hue":296,"shape":"orb","notes":""},{"id":"chanel-bleu-de-chanel-l-exclusif-parfum-100-ml","pk":"chanel-bleu-de-chanel-l-exclusif","brand":"Chanel","ab":"CHANEL","name":"Bleu de Chanel L'Exclusif","type":"Parfum","size":"100 ml","who":"him","price":1280,"hue":58,"shape":"obelisk","notes":""},{"id":"creed-himalaya-edp-100-ml","pk":"creed-himalaya","brand":"Creed","ab":"CREED","name":"Himalaya","type":"EDP","size":"100 ml","who":"him","price":1480,"hue":328,"shape":"orb","notes":""},{"id":"brand-not-on-box-intense-noir-le-parfum-edp-100-ml","pk":"brand-not-on-box-intense-noir-le-parfum","brand":"(brand not on box)","ab":"—","name":"Intense Noir Le Parfum","type":"EDP","size":"100 ml","who":"unisex","price":480,"hue":272,"shape":"obelisk","notes":""},{"id":"paris-corner-khair-fusion-edp-100-ml","pk":"paris-corner-khair-fusion","brand":"Paris Corner","ab":"PC","name":"Khair Fusion","type":"EDP","size":"100 ml","who":"unisex","price":360,"hue":24,"shape":"flask","notes":""}],"featured":[{"id":"dior-sauvage-elixir-elixir-100-ml","line":"Dior's most concentrated Sauvage — richer and longer-wearing than the Eau de Parfum."},{"id":"maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-200-ml","line":"The most requested niche fragrance in the world, in its extrait concentration. 200ml."},{"id":"louis-vuitton-ombre-nomade-edp-100-ml","line":"Louis Vuitton's oud. Rare on the shelf and unmistakable in a room."},{"id":"yves-saint-laurent-libre-eau-de-parfum-intense-edp-intense-90-ml","line":"The Libre signature, turned up. YSL's most-worn women's parfum in its intense concentration."},{"id":"lattafa-badee-al-oud-oud-for-glory-edp-100-ml","line":"Niche character at GH¢380. The easiest way into oud, and the bottle that keeps selling out."}],"brands":["(brand not on box)","Al Haramain","Amouage","Armaf","Burberry","Bvlgari","Byredo","Cartier","Chanel","Coach","Creed","Dior","Dolce & Gabbana","Emporio Armani","Frederic Malle","Giorgio Armani","Givenchy","Gucci","Hermes","Hugo Boss","Issey Miyake","Jean Paul Gaultier","Jimmy Choo","Jo Malone London","Kilian","Lattafa","Le Labo","Louis Vuitton","Maison Crivelli","Maison Francis Kurkdjian","Mancera","Montblanc","Nishane","Paco Rabanne","Parfums de Marly","Paris Corner","Penhaligon's","Prada","Roja Parfums","Tiziana Terenzi","Tom Ford","Valentino","Yves Saint Laurent"]};
-const PRODUCTS = DATA.products;
+
+/* ----------------------------------------------------------------------
+   The price list drives the site.
+   If prices.csv sits next to this file, the catalogue is built from it,
+   so updating prices means exporting your spreadsheet and uploading it —
+   no code change. If the file is missing or unreadable, the built-in
+   list below is used instead, so the shop never goes blank.
+   ---------------------------------------------------------------------- */
+const SHEET = "prices.csv";
+const HUES   = [272,38,342,24,222,200,296,152,58,14,328,178,262,42,310,190];
+const SHAPES = ["obelisk","flacon","orb","flask"];
+const ABBR = {"maison francis kurkdjian":"MFK","yves saint laurent":"YSL","jean paul gaultier":"JPG",
+  "louis vuitton":"LV","tom ford":"TF","dolce & gabbana":"D&G","parfums de marly":"PdM",
+  "giorgio armani":"GA","emporio armani":"EA","jo malone london":"JO","frederic malle":"FM",
+  "maison crivelli":"MC","tiziana terenzi":"TT","al haramain":"AH","paco rabanne":"PR",
+  "issey miyake":"IM","paris corner":"PC","hugo boss":"BOSS","penhaligon's":"P's"};
+
+function slugify(s){
+  return s.normalize("NFKD").replace(/[̀-ͯ]/g,"")
+          .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/-+/g,"-").replace(/^-|-$/g,"");
+}
+function abbrev(b){
+  const k = b.toLowerCase().trim();
+  if(ABBR[k]) return ABBR[k];
+  const w = b.match(/[A-Za-z]+/g) || ["SA"];
+  return w.length === 1 ? w[0].slice(0,6).toUpperCase() : w.slice(0,3).map(x => x[0]).join("").toUpperCase();
+}
+function parseCSV(text){
+  text = text.replace(/^﻿/, "");
+  const head = text.slice(0, (text.indexOf("\n") + 1 || text.length + 1) - 1);
+  const delim = head.split(";").length > head.split(",").length ? ";" : ",";
+  const rows = []; let row = [], cur = "", quoted = false;
+  for(let i = 0; i < text.length; i++){
+    const c = text[i];
+    if(quoted){
+      if(c === '"'){ if(text[i+1] === '"'){ cur += '"'; i++; } else quoted = false; }
+      else cur += c;
+    }
+    else if(c === '"') quoted = true;
+    else if(c === delim){ row.push(cur); cur = ""; }
+    else if(c === "\n"){ row.push(cur); cur = ""; rows.push(row); row = []; }
+    else if(c !== "\r") cur += c;
+  }
+  if(cur !== "" || row.length){ row.push(cur); rows.push(row); }
+  return rows;
+}
+function fromSheet(text){
+  const rows = parseCSV(text);
+  const hi = rows.findIndex(r => r.some(c => /^\s*brand\s*$/i.test(c || "")));
+  if(hi < 0) throw new Error("no Brand column");
+  const head = rows[hi].map(c => (c || "").trim().toLowerCase());
+  const find = re => head.findIndex(h => re.test(h));
+  const col = {
+    brand: find(/^brand$/), name: find(/fragrance|product|^name$/),
+    type: find(/type|concentration/), size: find(/size|volume/),
+    who: find(/^for$|gender|worn/), price: find(/price/),
+    qty: find(/qty|stock/), photo: find(/photo/)
+  };
+  if(col.brand < 0 || col.name < 0 || col.price < 0) throw new Error("missing columns");
+  const get = (r, i) => i >= 0 && r[i] != null ? String(r[i]).trim() : "";
+
+  const raw = [];
+  for(let i = hi + 1; i < rows.length; i++){
+    const r = rows[i];
+    const brand = get(r, col.brand), name = get(r, col.name);
+    const price = parseFloat(get(r, col.price).replace(/[^\d.\-]/g, ""));
+    if(!brand || !name || !isFinite(price) || price <= 0) continue;
+    const qtyRaw = get(r, col.qty);
+    raw.push({brand, name, price: Math.round(price),
+      type: get(r, col.type), size: get(r, col.size),
+      whoRaw: get(r, col.who).toLowerCase(), photo: get(r, col.photo),
+      out: /^\d+$/.test(qtyRaw) && +qtyRaw === 0});
+  }
+  if(!raw.length) throw new Error("no rows");
+
+  const brands = [...new Set(raw.map(p => p.brand))].sort();
+  const seen = new Set();
+  return raw.map(p => {
+    let id = slugify([p.brand, p.name, p.type, p.size].join("-"));
+    while(seen.has(id)) id += "-2";
+    seen.add(id);
+    const bi = brands.indexOf(p.brand);
+    const who = /wom|her|lad/.test(p.whoRaw) ? "her" : /^men|him|man/.test(p.whoRaw) ? "him" : "unisex";
+    return {
+      id, pk: p.photo ? p.photo.replace(/\.(jpe?g|png|webp|avif)$/i, "") : slugify(p.brand + "-" + p.name),
+      brand: p.brand, ab: abbrev(p.brand), name: p.name, type: p.type, size: p.size,
+      who, price: p.price, out: p.out, notes: "",
+      hue: HUES[bi % HUES.length], shape: SHAPES[bi % SHAPES.length]
+    };
+  });
+}
+async function loadSheet(){
+  const ctrl = new AbortController();
+  const bail = setTimeout(() => ctrl.abort(), 4000);
+  try{
+    const res = await fetch(SHEET + "?t=" + Math.floor(Date.now() / 60000), {signal: ctrl.signal});
+    if(!res.ok) throw new Error("HTTP " + res.status);
+    return fromSheet(await res.text());
+  } finally { clearTimeout(bail); }
+}
+
+let PRODUCTS = DATA.products;
+try{
+  const fromCsv = await loadSheet();
+  if(fromCsv.length) PRODUCTS = fromCsv;
+  console.log("Smell & Aura: catalogue loaded from " + SHEET + " (" + PRODUCTS.length + " products)");
+}catch(err){
+  console.log("Smell & Aura: using built-in catalogue (" + SHEET + " not used: " + err.message + ")");
+}
 const CUR = "GH¢";
 const money = n => CUR + n.toLocaleString("en-US");
 const WHO = {her:"For Her", him:"For Him", unisex:"Unisex"};
@@ -628,7 +740,8 @@ FEAT.forEach((p, i) => {
       <p class="hero-blurb">${esc(p.line)}</p>
       <div class="hero-buy">
         <span class="price">${money(p.price)}${p.size ? `<small>${esc(p.size)}</small>` : ""}</span>
-        <button class="btn" data-add="${p.id}">Add to cart</button>
+        ${p.out ? '<span class="soldout">Sold out</span>'
+                : `<button class="btn" data-add="${p.id}">Add to cart</button>`}
         <button class="btn btn-ghost" data-view="${p.id}">Details</button>
       </div>
     </div>
@@ -726,7 +839,8 @@ function render(){
         <p class="card-spec">${esc(spec(p))}</p>
         <div class="card-foot">
           <span class="card-price">${money(p.price)}</span>
-          <button class="add" data-add="${p.id}">Add</button>
+          ${p.out ? '<span class="soldout">Sold out</span>'
+                  : `<button class="add" data-add="${p.id}">Add</button>`}
         </div>
       </div>`;
     grid.appendChild(c);
@@ -959,11 +1073,13 @@ function openModal(id){
       </div>
       <div class="modal-buy">
         <span class="price">${money(p.price)}</span>
-        <button class="btn" id="modalAdd">Add to cart</button>
+        ${p.out ? '<span class="soldout">Sold out</span>'
+                : '<button class="btn" id="modalAdd">Add to cart</button>'}
       </div>
       <p class="photo-note">Product photography to follow — the bottle shown is an illustration.</p>
     </div>`;
-  card.querySelector("#modalAdd").addEventListener("click", () => { addToCart(p.id); closeModal(); });
+  const madd = card.querySelector("#modalAdd");
+  if(madd) madd.addEventListener("click", () => { addToCart(p.id); closeModal(); });
   card.querySelector("#modalClose").addEventListener("click", closeModal);
   $("#modal").classList.add("is-on");
   $("#modal").setAttribute("aria-hidden", "false");
