@@ -1,0 +1,103 @@
+PHOTO FILE NAMES
+================
+
+Save each product photo with the exact name on the left and drop it in
+this photos folder. JPG preferred; PNG works too (same name, .png).
+Shoot on a black or dark background so the bottle sits in the page.
+Square-ish, around 1000x1000 pixels, under 300 KB each.
+
+92 photos cover all 94 listings — a few fragrances differ only
+by size or concentration and share one picture.
+
+hugo-boss-boss-bottled.jpg                            Hugo Boss — Boss Bottled
+hugo-boss-boss-bottled-bold-citrus.jpg                Hugo Boss — Boss Bottled Bold Citrus
+giorgio-armani-acqua-di-gio-pour-homme.jpg            Giorgio Armani — Acqua di Gio Pour Homme
+giorgio-armani-si-passione.jpg                        Giorgio Armani — Si Passione
+giorgio-armani-my-way.jpg                             Giorgio Armani — My Way
+giorgio-armani-my-way-floral.jpg                      Giorgio Armani — My Way Floral
+emporio-armani-stronger-with-you-parfum.jpg           Emporio Armani — Stronger With You Parfum
+emporio-armani-stronger-with-you-sandalwood.jpg       Emporio Armani — Stronger With You Sandalwood
+emporio-armani-stronger-with-you-oud.jpg              Emporio Armani — Stronger With You Oud
+dior-sauvage-elixir.jpg                               Dior — Sauvage Elixir
+dior-sauvage.jpg                                      Dior — Sauvage
+dior-rouge-trafalgar-la-collection-privee.jpg         Dior — Rouge Trafalgar (La Collection Privee)
+dior-oud-ispahan-la-collection-privee.jpg             Dior — Oud Ispahan (La Collection Privee)
+dior-miss-dior-bobby-edition.jpg                      Dior — Miss Dior - Bobby Edition
+tom-ford-oud-minerale.jpg                             Tom Ford — Oud Minerale
+tom-ford-black-orchid.jpg                             Tom Ford — Black Orchid
+tom-ford-eau-d-ombre-leather.jpg                      Tom Ford — Eau d'Ombre Leather
+tom-ford-fucking-fabulous-fabulous.jpg                Tom Ford — Fucking Fabulous / Fabulous
+tom-ford-oud-wood.jpg                                 Tom Ford — Oud Wood
+bvlgari-pour-homme-soir.jpg                           Bvlgari — Pour Homme Soir
+bvlgari-man-in-black.jpg                              Bvlgari — Man In Black
+gucci-guilty-pour-homme.jpg                           Gucci — Guilty Pour Homme
+jo-malone-london-orange-blossom.jpg                   Jo Malone London — Orange Blossom
+burberry-goddess.jpg                                  Burberry — Goddess
+burberry-my-burberry-black.jpg                        Burberry — My Burberry Black
+burberry-burberry-london-for-women.jpg                Burberry — Burberry London for Women
+burberry-signatures-amber-heath.jpg                   Burberry — Signatures - Amber Heath
+hermes-terre-d-hermes.jpg                             Hermes — Terre d'Hermes
+prada-paradoxe-intense.jpg                            Prada — Paradoxe Intense
+prada-paradoxe-radical-essence.jpg                    Prada — Paradoxe Radical Essence
+valentino-uomo-born-in-roma-intense.jpg               Valentino — Uomo Born In Roma Intense
+valentino-uomo-born-in-roma-purple-flanker.jpg        Valentino — Uomo Born In Roma (purple flanker)
+valentino-donna-born-in-roma.jpg                      Valentino — Donna Born In Roma
+valentino-donna-born-in-roma-intense.jpg              Valentino — Donna Born In Roma Intense
+yves-saint-laurent-y-le-parfum.jpg                    Yves Saint Laurent — Y Le Parfum
+yves-saint-laurent-myslf-le-parfum.jpg                Yves Saint Laurent — MYSLF Le Parfum
+yves-saint-laurent-y-iced-cologne-edt-intense.jpg     Yves Saint Laurent — Y Iced Cologne (EDT Intense)
+yves-saint-laurent-libre-eau-de-parfum-intense.jpg    Yves Saint Laurent — Libre Eau de Parfum Intense
+yves-saint-laurent-libre-vanille-couture.jpg          Yves Saint Laurent — Libre Vanille Couture
+montblanc-explorer.jpg                                Montblanc — Explorer
+montblanc-explorer-platinum.jpg                       Montblanc — Explorer Platinum
+coach-coach-new-york.jpg                              Coach — Coach New York
+coach-love.jpg                                        Coach — Love
+coach-gold.jpg                                        Coach — Gold
+parfums-de-marly-percival.jpg                         Parfums de Marly — Percival
+parfums-de-marly-layton.jpg                           Parfums de Marly — Layton
+cartier-la-panthere.jpg                               Cartier — La Panthere
+issey-miyake-l-eau-d-issey-pour-homme.jpg             Issey Miyake — L'Eau d'Issey Pour Homme
+dolce-gabbana-devotion.jpg                            Dolce & Gabbana — Devotion
+kilian-angels-share.jpg                               Kilian — Angels' Share
+mancera-red-tobacco.jpg                               Mancera — Red Tobacco
+roja-parfums-elysium-pour-homme.jpg                   Roja Parfums — Elysium Pour Homme
+roja-parfums-turandot.jpg                             Roja Parfums — Turandot
+roja-parfums-diaghilev.jpg                            Roja Parfums — Diaghilev
+roja-parfums-harrods-pour-homme.jpg                   Roja Parfums — Harrods Pour Homme
+nishane-hacivat-x.jpg                                 Nishane — Hacivat X
+nishane-hacivat.jpg                                   Nishane — Hacivat
+nishane-hundred-silent-ways.jpg                       Nishane — Hundred Silent Ways
+nishane-wulong-cha-x.jpg                              Nishane — Wulong Cha X
+maison-crivelli-oud-maracuja.jpg                      Maison Crivelli — Oud Maracuja
+maison-crivelli-hibiscus-mahajad.jpg                  Maison Crivelli — Hibiscus Mahajad
+tiziana-terenzi-kirke.jpg                             Tiziana Terenzi — Kirke
+lattafa-badee-al-oud-oud-for-glory.jpg                Lattafa — Badee Al Oud - Oud For Glory
+lattafa-his-confession.jpg                            Lattafa — His Confession
+jimmy-choo-i-want-choo-forever.jpg                    Jimmy Choo — I Want Choo Forever
+penhaligon-s-the-omniscient-mr-thompson.jpg           Penhaligon's — The Omniscient Mr Thompson
+penhaligon-s-the-coveted-duchess-rose.jpg             Penhaligon's — The Coveted Duchess Rose
+le-labo-myrrhe-55.jpg                                 Le Labo — Myrrhe 55
+frederic-malle-portrait-of-a-lady.jpg                 Frederic Malle — Portrait of a Lady
+frederic-malle-une-rose.jpg                           Frederic Malle — Une Rose
+frederic-malle-rose-cuir.jpg                          Frederic Malle — Rose & Cuir
+armaf-club-de-nuit-women.jpg                          Armaf — Club de Nuit Women
+armaf-club-de-nuit-intense-man.jpg                    Armaf — Club de Nuit Intense Man
+al-haramain-amber-oud-aqua-dubai.jpg                  Al Haramain — Amber Oud Aqua Dubai
+al-haramain-amber-oud-ruby-edition.jpg                Al Haramain — Amber Oud Ruby Edition
+al-haramain-amber-oud-gold-edition.jpg                Al Haramain — Amber Oud Gold Edition
+al-haramain-amber-oud-bleu-edition.jpg                Al Haramain — Amber Oud Bleu Edition
+jean-paul-gaultier-le-male-elixir-absolu.jpg          Jean Paul Gaultier — Le Male Elixir Absolu
+amouage-purpose-50.jpg                                Amouage — Purpose 50
+amouage-interlude-53-man.jpg                          Amouage — Interlude 53 Man
+amouage-search.jpg                                    Amouage — Search
+maison-francis-kurkdjian-baccarat-rouge-540.jpg       Maison Francis Kurkdjian — Baccarat Rouge 540
+paco-rabanne-1-million-elixir.jpg                     Paco Rabanne — 1 Million Elixir
+louis-vuitton-imagination.jpg                         Louis Vuitton — Imagination
+louis-vuitton-ombre-nomade.jpg                        Louis Vuitton — Ombre Nomade
+givenchy-gentleman-society.jpg                        Givenchy — Gentleman Society
+byredo-blanche.jpg                                    Byredo — Blanche
+byredo-rose-of-no-man-s-land.jpg                      Byredo — Rose of No Man's Land
+chanel-bleu-de-chanel-l-exclusif.jpg                  Chanel — Bleu de Chanel L'Exclusif
+creed-himalaya.jpg                                    Creed — Himalaya
+brand-not-on-box-intense-noir-le-parfum.jpg           (brand not on box) — Intense Noir Le Parfum
+paris-corner-khair-fusion.jpg                         Paris Corner — Khair Fusion
